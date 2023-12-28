@@ -29,7 +29,7 @@ pipeline:
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: account.harnessImage
+                    connectorRef: projectleveldockerhub
                     repo: pavan8767/harness-ci
                     tags:
                       - next
