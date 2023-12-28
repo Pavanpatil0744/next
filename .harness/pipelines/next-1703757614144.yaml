@@ -28,7 +28,8 @@ pipeline:
                   identifier: npmtest
                   name: npm_test
                   spec:
-                    command: npm run lint
+                    shell: Sh
+                    command: npm test
                   timeout: ""
                   type: Run
               - step:
