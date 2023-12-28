@@ -36,7 +36,7 @@ pipeline:
                   name: docker_build
                   spec:
                     connectorRef: account.harnessImage
-                    image: plugins/docker
+                    image: pavan8767/harness-ci
                     settings:
                       dry_run: "true"
                       repo: hello/world
