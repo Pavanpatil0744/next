@@ -33,26 +33,6 @@ pipeline:
                     repo: pavan8767/harness-ci
                     tags:
                       - next
-              - step:
-                  identifier: npmtest
-                  name: npm_test
-                  spec:
-                    shell: Sh
-                    command: npm test
-                  timeout: ""
-                  type: Run
-              - step:
-                  identifier: dockerbuild
-                  name: docker_build
-                  spec:
-                    connectorRef: account.harnessImage
-                    image: pavan8767/harness-ci
-                    settings:
-                      dry_run: "true"
-                      repo: hello/world
-                      tags: latest
-                  timeout: ""
-                  type: Plugin
           platform:
             os: Linux
             arch: Amd64
