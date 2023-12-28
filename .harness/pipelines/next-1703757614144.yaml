@@ -25,14 +25,6 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  identifier: npmtest
-                  name: npm_test
-                  spec:
-                    shell: Sh
-                    command: npm test
-                  timeout: ""
-                  type: Run
-              - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
@@ -41,6 +33,14 @@ pipeline:
                     repo: pavan8767/harness-ci
                     tags:
                       - next
+              - step:
+                  identifier: npmtest
+                  name: npm_test
+                  spec:
+                    shell: Sh
+                    command: npm test
+                  timeout: ""
+                  type: Run
               - step:
                   identifier: dockerbuild
                   name: docker_build
