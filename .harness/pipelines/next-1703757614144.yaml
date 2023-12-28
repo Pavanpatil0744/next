@@ -33,6 +33,15 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: pavan8767/harness-ci
+                    tags:
+                      - next
+              - step:
                   identifier: dockerbuild
                   name: docker_build
                   spec:
