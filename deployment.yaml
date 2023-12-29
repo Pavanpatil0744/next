@@ -17,4 +17,4 @@ spec:
       - image: pavan8767/harness-ci:next
         name: guestbook-ui
         ports:
-        - containerPort: 80
+        - containerPort: 3000
