@@ -32,7 +32,7 @@ pipeline:
                     connectorRef: projectleveldockerhub
                     repo: pavan8767/harness-ci
                     tags:
-                      - next-app
+                      - next
           platform:
             os: Linux
             arch: Amd64
