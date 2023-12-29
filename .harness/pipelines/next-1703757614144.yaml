@@ -1,83 +1,13 @@
 pipeline:
-  identifier: Build_Pavanpatil0744_next_1703757627664
   name: Build next
-  orgIdentifier: default
+  identifier: Build_Pavanpatil0744_next_1703757627664
+  template:
+    templateRef: nextjscicd
+    versionLabel: demo
+    templateInputs:
+      properties:
+        ci:
+          codebase:
+            build: <+input>
   projectIdentifier: pythonci
-  properties:
-    ci:
-      codebase:
-        build: <+input>
-        connectorRef: account.Github_OAuth_1701856371806
-        repoName: Pavanpatil0744/next
-  stages:
-    - stage:
-        identifier: build
-        name: build
-        spec:
-          cloneCodebase: true
-          execution:
-            steps:
-              - step:
-                  identifier: npminstall
-                  name: npm_install
-                  spec:
-                    command: npm install
-                  timeout: ""
-                  type: Run
-              - step:
-                  type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
-                  spec:
-                    connectorRef: projectleveldockerhub
-                    repo: pavan8767/harness-ci
-                    tags:
-                      - latest
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
-        type: CI
-    - stage:
-        name: deploy-k8s
-        identifier: deployk8s
-        description: ""
-        type: Deployment
-        spec:
-          deploymentType: Kubernetes
-          service:
-            serviceRef: k8sdeployment
-          environment:
-            environmentRef: stageenv
-            deployToAll: false
-            infrastructureDefinitions:
-              - identifier: k8sinfra
-          execution:
-            steps:
-              - step:
-                  name: Rollout Deployment
-                  identifier: rolloutDeployment
-                  type: K8sRollingDeploy
-                  timeout: 10m
-                  spec:
-                    skipDryRun: false
-                    pruningEnabled: false
-                    delegateSelectors:
-                      - kubernetes-delegate-mini
-            rollbackSteps:
-              - step:
-                  name: Rollback Rollout Deployment
-                  identifier: rollbackRolloutDeployment
-                  type: K8sRollingRollback
-                  timeout: 10m
-                  spec:
-                    pruningEnabled: false
-        tags: {}
-        failureStrategies:
-          - onFailure:
-              errors:
-                - AllErrors
-              action:
-                type: StageRollback
+  orgIdentifier: default
