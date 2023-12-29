@@ -2,11 +2,8 @@
 const nextConfig = {}
 
 // next.config.js
-module.exports = {
-  server: {
-    port: process.env.PORT || 3000,
-  },
-};
+module.exports = nextConfig
+
 
 
 
