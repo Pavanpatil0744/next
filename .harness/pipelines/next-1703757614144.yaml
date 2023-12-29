@@ -65,7 +65,7 @@ pipeline:
                     skipDryRun: false
                     pruningEnabled: false
                     delegateSelectors:
-                      - kubernetes-delegate
+                      - kubernetes-delegate-new
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
