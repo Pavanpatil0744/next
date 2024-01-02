@@ -50,6 +50,14 @@ pipeline:
           deploymentType: Kubernetes
           service:
             serviceRef: k8sdeployment
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
           environment:
             environmentRef: stageenv
             deployToAll: false
