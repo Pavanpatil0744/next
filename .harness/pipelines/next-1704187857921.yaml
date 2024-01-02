@@ -40,6 +40,7 @@ pipeline:
             type: Cloud
             spec: {}
         type: CI
+        description: ""
     - stage:
         name: deploy-k8s
         identifier: deployk8s
