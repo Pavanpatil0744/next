@@ -66,6 +66,22 @@ pipeline:
           execution:
             steps:
               - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          nexttag=<+pipeline.sequenceId>
+                          echo $nextag
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+              - step:
                   name: Rollout Deployment
                   identifier: rolloutDeployment
                   type: K8sRollingDeploy
