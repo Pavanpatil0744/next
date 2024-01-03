@@ -77,9 +77,12 @@ pipeline:
                       spec:
                         script: |-
                           nexttag=<+pipeline.sequenceId>
-                          echo $nextag
+                          echo $nexttag
                     environmentVariables: []
                     outputVariables: []
+                    delegateSelectors:
+                      - kubernetes-delegate
+                    includeInfraSelectors: true
                   timeout: 10m
               - step:
                   name: Rollout Deployment
