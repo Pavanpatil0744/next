@@ -16,7 +16,7 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: pavan8767/harness-ci:$nexttag
+      - image: {{.Values.image}}
         name: guestbook-ui
         ports:
         - containerPort: 3000
